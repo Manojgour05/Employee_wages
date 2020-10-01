@@ -19,3 +19,9 @@ echo "Welcome to Employee Wage Computation Program on Master Branch"
 	wagePerDay=$(($wagePerHour * $hoursPerDay))
 	echo "Fulltime employee daily wage=$wagePerDay "
 
+# Add Part Time Employee & Wage
+
+	partTimeHour=4
+
+	WagePerDay=$(($wagePerHour * $partTimeHour ))
+	echo "PartTime employee daily wage =$WagePerDay"
