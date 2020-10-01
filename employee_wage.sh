@@ -11,3 +11,11 @@ echo "Welcome to Employee Wage Computation Program on Master Branch"
 	else
 		echo "Employee is absent"
 	fi
+
+# Calculate daily employee wage 
+	wagePerHour=20
+	hoursPerDay=8
+
+	wagePerDay=$(($wagePerHour * $hoursPerDay))
+	echo "Fulltime employee daily wage=$wagePerDay "
+
