@@ -23,5 +23,21 @@ echo "Welcome to Employee Wage Computation Program on Master Branch"
 
 	partTimeHour=4
 
-	WagePerDay=$(($wagePerHour * $partTimeHour ))
-	echo "PartTime employee daily wage =$WagePerDay"
+	partTime_WagePerDay=$(($wagePerHour * $partTimeHour ))
+	echo "PartTime employee daily wage =$partTime_WagePerDay"
+
+#  Solving using Switch Case Statement
+
+case $randomCheck in
+1)
+
+	wagePerDay=$(( $wagePerHour * $hoursPerDay))
+;;
+
+2)
+
+	partTime_WagePerDay=$(( $wagePerHour * $partTimeHour ))
+;;
+esac
+	echo "Fulltime employee daily wage=$wagePerDay "
+	echo "PartTime employee daily wage =$partTime_WagePerDay"
