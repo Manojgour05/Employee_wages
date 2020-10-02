@@ -60,5 +60,36 @@ esac
 	TFWage=$(($TFWage + $wagePerDay))
 	TPWage=$(($TPWage+$dailyWage))
 done
-	echo "Total FullTime Wages= $TFWage"
-	echo "Total PertTime Wages= $TPWage"
+#      echo "Total FullTime Wages= $TFWage"
+ #     echo "Total PertTime Wages= $TPWage"
+
+
+ day=1
+   hours=0
+   FullTime=1
+   PartTime=2
+   salary=0
+   totalSalary=0
+while [ $day -le 20 ] || [ $hour -lt 100 ]
+do
+        var=$(( 1+ RANDOM%2))
+
+        case  $var in
+                $FullTime)
+                        empName=FullTimeEmployee
+                        empHours=$(($hour + $hoursPerDay))
+;;
+
+                $PartTime)
+                empName=PartTimeEmployee
+                 empHours=$(($hour + $partTimeHour))
+;;
+esac
+     salary=$(( $empHours * $wagePerHour ))
+     echo "salary" fo $empName on the $day is $salary
+       totalSalary=$(($totalSalary + $salary ))
+      ((day++))
+
+done
+
+        echo "total salary= $totalSalary"
