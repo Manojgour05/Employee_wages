@@ -61,8 +61,9 @@ esac
 	TPWage=$(($TPWage+$dailyWage))
 done
 #      echo "Total FullTime Wages= $TFWage"
- #     echo "Total PertTime Wages= $TPWage"
+#     echo "Total PertTime Wages= $TPWage"
 
+# Calculating wage for 20 days
 
  day=1
    hours=0
@@ -92,4 +93,39 @@ esac
 
 done
 
-        echo "total salary= $totalSalary"
+#        echo "total salary=$totalSalary"
+
+
+#  Calculate wages for a month
+
+getTotal_WorkHour_Salary(){
+
+while [ $day -le 20 ] || [ $hour -lt 100 ]
+do
+        var=$(( 1+ RANDOM%2))
+
+        case  $var in
+                $FullTime)
+                        empName=FullTimeEmployee
+                        empHours=$(($hour + $hoursPerDay));;
+
+                $PartTime)
+                empName=PartTimeEmployee
+                 empHours=$(($hour + $partTimeHour))
+;;
+esac
+     salary=$(( $empHours * $wagePerHour ))
+     #echo "salary" fo $empName on the $day is $salary
+
+        totalSalary=$(($totalSalary + $salary ))
+      ((day++))
+        ((hour++))
+done
+      #  echo "total salary= $totalSalary"
+
+}
+day=1
+hour=0
+getTotal_WorkHour_Salary $day $hour
+ echo  "total Salary= $totalSalary"
+ echo "total hour=$empHours"
