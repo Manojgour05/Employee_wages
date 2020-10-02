@@ -152,12 +152,47 @@ do
 ;;
 esac
      salary=$(( $empHours * $wagePerHour ))
-     #echo "salary" fo $empName on the $day is $salary
+
 
         totalSalary=$(($totalSalary + $salary ))
       ((day++))
         ((hour++))
 echo "$salary                                    $totalSalary"
+done
+
+
+}
+day=1
+hour=0
+getTotal_WorkHour_Salary1 $day $hour
+ echo  "total Salary= $totalSalary"
+ echo "total hour=$empHours"
+
+
+echo  "day                             Salary                                 TotalSalary"
+getTotal_WorkHour_Salary1(){
+
+while [ $day -le 20 ] && [ $hour -lt 100 ]
+do
+        var=$(( 1+ RANDOM%2))
+
+        case  $var in
+                $FullTime)
+                        empName=FullTimeEmployee
+                        empHours=$(($hour + $hoursPerDay));;
+
+                $PartTime)
+                empName=PartTimeEmployee
+                 empHours=$(($hour + $partTimeHour))
+;;
+esac
+     salary=$(( $empHours * $wagePerHour ))
+     #echo "salary" fo $empName on the $day is $salary
+
+        totalSalary=$(($totalSalary + $salary ))
+      ((day++))
+        ((hour++))
+echo "$day                               $salary                                    $totalSalary"
 done
 
 
