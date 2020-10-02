@@ -17,14 +17,14 @@ echo "Welcome to Employee Wage Computation Program on Master Branch"
 	hoursPerDay=8
 
 	wagePerDay=$(($wagePerHour * $hoursPerDay))
-	echo "Fulltime employee daily wage=$wagePerDay "
+	#echo "Fulltime employee daily wage=$wagePerDay "
 
 # Add Part Time Employee & Wage
 
 	partTimeHour=4
 
 	partTime_WagePerDay=$(($wagePerHour * $partTimeHour ))
-	echo "PartTime employee daily wage =$partTime_WagePerDay"
+	#echo "PartTime employee daily wage =$partTime_WagePerDay"
 
 #  Solving using Switch Case Statement
 
@@ -39,5 +39,26 @@ case $randomCheck in
 	partTime_WagePerDay=$(( $wagePerHour * $partTimeHour ))
 ;;
 esac
-	echo "Fulltime employee daily wage=$wagePerDay "
-	echo "PartTime employee daily wage =$partTime_WagePerDay"
+	#echo "Fulltime employee daily wage=$wagePerDay "
+	#echo "PartTime employee daily wage =$partTime_WagePerDay"
+# Calculate wage for a Month
+
+workday=20
+TFWage=0
+TPWage=0
+for ((d=1;d<=$workday;d++ ))
+do
+	var=$(( 1+RANDOM%2 )) 
+case $var  in
+	1)
+	 wagePerDay=$(( $wagePerHour * $hoursPerDay ))
+;;
+        2)
+	 dailyWage=$(( $wagePerHour * $partTimeHour ))
+;;
+esac
+	TFWage=$(($TFWage + $wagePerDay))
+	TPWage=$(($TPWage+$dailyWage))
+done
+	echo "Total FullTime Wages= $TFWage"
+	echo "Total PertTime Wages= $TPWage"
