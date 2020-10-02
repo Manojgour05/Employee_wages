@@ -87,7 +87,7 @@ do
 ;;
 esac
      salary=$(( $empHours * $wagePerHour ))
-     echo "salary" fo $empName on the $day is $salary
+ #    echo "salary" fo $empName on the $day is $salary
        totalSalary=$(($totalSalary + $salary ))
       ((day++))
 
@@ -98,9 +98,10 @@ done
 
 #  Calculate wages for a month
 
+echo  "Salary                                 TotalSalary"
 getTotal_WorkHour_Salary(){
 
-while [ $day -le 20 ] || [ $hour -lt 100 ]
+while [ $day -le 20 ] && [ $hour -lt 100 ]
 do
         var=$(( 1+ RANDOM%2))
 
@@ -120,6 +121,7 @@ esac
         totalSalary=$(($totalSalary + $salary ))
       ((day++))
         ((hour++))
+echo "$salary                                    $totalSalary"
 done
       #  echo "total salary= $totalSalary"
 
@@ -129,3 +131,4 @@ hour=0
 getTotal_WorkHour_Salary $day $hour
  echo  "total Salary= $totalSalary"
  echo "total hour=$empHours"
+
